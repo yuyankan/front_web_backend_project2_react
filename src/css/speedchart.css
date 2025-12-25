@@ -1,0 +1,114 @@
+/* -------------------------------------- */
+/* 实时状态展示区域的容器 (2 行 2 列布局) */
+/* -------------------------------------- */
+.status-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 5px 5px; /* 列间距 5px */
+    width:30%;
+    border: 3px solid black;
+}
+
+.status-item {
+    /* 50% 减去 5px gap 的一半 (2.5px) */
+    flex: 0 0 calc(50% - 2.5px); 
+}
+
+
+/* 确保图表容器有适当的边距和背景 */
+.chart-container-wrapper {
+    /* 如果您的父容器宽度不确定，这里可以设置最大宽度 */
+    /* max-width: 1200px; */
+    /*width: 800px;*/
+    
+    width:"100%";
+    padding: 20px;
+    background-color: #ffffff; /* 例如，设置一个白色背景 */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: "border-box"; /* 包括 padding 在内的宽度*/
+    border-bottom: "20px";
+}
+
+
+    
+
+/* 如果需要控制整个图表组件内的字体大小等，可以在这里设置 */
+.recharts-wrapper {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+
+
+/* 子元素样式：平分宽度 speed & pciture*/
+
+.speed-pic {
+    display: flex;
+    gap: 10px; /* 控制 speed 和 pic 之间的间距 */
+    height: 500px;
+}
+/* -------------------------------------- */
+/* 1. 左侧面板：占据 4 份 (总共 10 份中的 40%) */
+/* -------------------------------------- */
+.left_panel_speed {
+    /* flex: grow shrink basis; */
+    flex: 3; 
+     min-width: 30vw;
+    height: 100%;
+    background-color: pink; /* 例如，设置一个白色背景 */
+}
+
+/* -------------------------------------- */
+/* 2. 右侧面板：占据 6 份 (总共 10 份中的 60%) */
+/* -------------------------------------- */
+.right_panel_image {
+    /* flex: grow shrink basis; */
+    flex: 7; 
+    min-width: 50vw;
+    height: 100%;
+    border: 1px solid #ed02e5;
+}
+
+.right_panel_image_sub {
+    /* flex: grow shrink basis; */
+    
+    width: 100%;
+    border: 1px solid #ed02e5;
+
+    flex-direction: row; /* 确保子元素横向排列 */
+    display: flex;
+
+}
+
+
+
+
+.image_wrapper {
+    flex:3;
+    border: 3px solid #bcc904;
+    position: relative;
+    cursor: default; 
+    align-items: center; 
+}
+
+
+.image_image {
+    width: 100%;
+    border: 2px solid #ccc;
+    position: relative;
+    cursor: default; 
+    align-items: center; 
+    padding: 5px;
+}
+
+
+.image_detail_panel {
+    flex:5;
+    width: 40%;
+    border: 1px solid #2f05e8;
+    position: relative;
+    cursor: default; 
+    align-items: left; 
+    padding-left: 10px;
+}
