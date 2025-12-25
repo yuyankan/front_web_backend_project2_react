@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  react_server_statu:
+    # 对应原脚本的 IMAGE_NAME:IMAGE_TAG
+    image: react_server_statu:202512
+    # 对应原脚本的 CONTAINER_NAME
+    container_name: react_server_statu
+    build:
+      context: .
+      # 对应原脚本的 DOCKERFILE
+      dockerfile: Dockerfile_with_nginx
+      args:
+        # 对应原脚本的 PROXY_ADDRESS
+        - HTTP_PROXY=http://gateway.zscalertwo.net:10090
+        - HTTPS_PROXY=http://gateway.zscalertwo.net:10090
+    # 对应原脚本的 HOST_PORT:CONTAINER_PORT
+    #ports:
+    #  - "8111:8000"
+    networks:
+      - network_docker_common_nginxuse
+    # 设置自动重启（生产环境建议）
+    restart: always
+
+networks:
+  network_docker_common_nginxuse:
+    external: true
