@@ -4,3 +4,8 @@
 3. project folder src
 4. 
    
+==========================================================================
+
+1. docker file: Dockerfile_with_nginx
+
+2. create image & container together: use docker-compose.yml
