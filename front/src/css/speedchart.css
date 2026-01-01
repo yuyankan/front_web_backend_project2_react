@@ -1,0 +1,182 @@
+/* -------------------------------------- */
+/* 实时状态展示区域的容器 (2 行 2 列布局) */
+/* -------------------------------------- */
+.status-grid {
+    display: flex;
+    flex-wrap: wrap;
+
+
+    /* 设置间距：上下 15px，左右 5px */
+    row-gap: 15px; 
+    column-gap: 10px; 
+
+    /*border: 1px solid rgb(241, 6, 6);*/
+    padding: 10px 10px 10px 30px; /* 稍微增加内边距 */
+    
+    min-height: 60px; 
+    height: 40%; 
+}
+
+.status-item {
+    /* 改回 50% 以实现两列平分 */
+    flex: 0 0 calc(25% - 5px); 
+ 
+    color: white;
+    font-size: 30px;
+    
+    /* 修正行高，防止文字重叠 */
+    line-height: 1.5; 
+    
+    /* 调试用：可以临时加个背景色看看每个 P 占据的范围 */
+    /* background: rgba(255,255,255,0.1); */
+    
+    margin: 0; /* 清除 p 标签默认的外边距干扰 */
+}
+.status-item-name {
+    font-weight: 200px;
+}
+
+.status-item-value {
+    color: darkorange;
+    size: 25px;
+    padding-left: 20px;
+    font-weight: 50px;
+
+    
+}
+
+
+/* 确保图表容器有适当的边距和背景 */
+.chart-container-wrapper {
+    /* 如果您的父容器宽度不确定，这里可以设置最大宽度 */
+    /* max-width: 1200px; */
+    /*width: 800px;*/
+    height: 80%;
+    
+    width:95%;
+    padding: 0px 0px 10px 10px;
+  
+    border-radius: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*box-sizing: "border-box"; /* 包括 padding 在内的宽度*/
+  
+   
+}
+
+
+    
+
+/* 如果需要控制整个图表组件内的字体大小等，可以在这里设置 */
+.recharts-wrapper {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+
+
+/* 子元素样式：平分宽度 speed & pciture*/
+
+.speed-pic {
+    display: flex;
+    gap: 0px 50px; /* 控制 speed 和 pic 之间的间距 */
+    height: 60%;
+    border: rgb(251, 249, 249);
+    width: 90%;
+    margin: 0 5%;
+ 
+
+}
+/* -------------------------------------- */
+/* 1. 左侧面板：占据 4 份 (总共 10 份中的 40%) */
+/* -------------------------------------- */
+.left_panel_speed {
+    /* flex: grow shrink basis; */
+    width: 45%;
+
+    min-width: 300px;
+    margin:0 0 0px 0px;
+    height: 100%;
+    /* 核心修改：实现均匀混合的橙色雾感 */
+    background: radial-gradient(
+        circle at center, 
+        hwb(33 16% 22% / 0.922) 1%,    /* 中间：深橙色，降低不透明度让它更均匀 */
+        rgba(225, 202, 174, 0.897) 90%      /* 边缘：完全透明，实现物理上的“周边透明” */
+    );
+
+ 
+
+}
+
+/* -------------------------------------- */
+/* 2. 右侧面板：占据 6 份 (总共 10 份中的 60%) */
+/* -------------------------------------- */
+.right_panel_image {
+    /* flex: grow shrink basis; */
+ 
+
+
+    width: 45%;
+    height:100%;
+
+    /*border: 1px solid #ed02e5;*/
+    background: radial-gradient(
+        circle at center, 
+        oklch(90.933% 0.06332 193.725) 1%,    /* 中间：深橙色，降低不透明度让它更均匀 */
+        rgba(225, 202, 174, 0.897) 90%      /* 边缘：完全透明，实现物理上的“周边透明” */
+    );
+ 
+
+
+
+}
+
+.right_panel_image_sub {
+    /* flex: grow shrink basis; */
+    
+    width: 100%;
+    /*border: 1px solid #ed02e5;*/
+
+    flex-direction: row; /* 确保子元素横向排列 */
+    display: flex;
+
+}
+
+
+
+
+.image_wrapper {
+    flex:1;
+    min-height: 300px;
+    /*border: 3px solid #bcc904;*/
+    position: relative;
+    cursor: default; 
+    align-items: center; 
+
+}
+
+
+
+
+.image_image {
+    min-width: 30px;
+    width: 90%;
+    border: 2px solid #ccc;
+    position: relative;
+    cursor: default; 
+    align-items: center; 
+    padding: 10px;
+
+}
+
+
+
+.image_detail_panel {
+    flex:1;
+    width: 40%;
+    /*border: 1px solid #2f05e8;*/
+    position: relative;
+    cursor: default; 
+    align-items: left; 
+    padding-left: 5px;
+}
+
